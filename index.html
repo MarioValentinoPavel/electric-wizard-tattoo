@@ -9,8 +9,8 @@
 <link rel="icon" href="assets/ig/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Yellowtail&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Yellowtail&family=Sancreek&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body class="is-loading">
 
@@ -19,13 +19,43 @@
     <symbol id="bolt" viewBox="0 0 60 120"><path d="M38 0 L6 66 L28 66 L18 120 L56 44 L33 44 L46 0 Z"/></symbol>
     <symbol id="star" viewBox="-50 -50 100 100"><path d="M0-48 L11-15 L46-15 L18 6 L29 40 L0 19 L-29 40 L-18 6 L-46-15 L-11-15 Z"/></symbol>
     <symbol id="burst" viewBox="-100 -100 200 200"><path d="M0-98 L14-52 L52-84 L42-38 L92-40 L54-8 L98 18 L50 26 L72 72 L28 50 L20 98 L-4 54 L-34 92 L-34 44 L-80 62 L-54 20 L-98 2 L-52-14 L-82-56 L-36-44 L-40-92 L-8-50 Z"/></symbol>
+    <!-- logo del estudio redibujado en vector (el de Instagram solo existe a 150px) -->
+    <symbol id="logo" viewBox="0 0 600 600">
+      <circle cx="300" cy="300" r="296" fill="#fff" stroke="#141414" stroke-width="6"/>
+      <g fill="#fff" stroke="#1f5ad9" stroke-width="5">
+        <circle cx="92" cy="190" r="57"/><circle cx="151.4" cy="190" r="57" fill="#1f5ad9"/><circle cx="210.8" cy="190" r="57"/><circle cx="270.2" cy="190" r="57" fill="#1f5ad9"/>
+        <circle cx="329.6" cy="190" r="57"/><circle cx="389" cy="190" r="57" fill="#1f5ad9"/><circle cx="448.4" cy="190" r="57"/><circle cx="507.8" cy="190" r="57" fill="#1f5ad9"/>
+        <circle cx="96" cy="336" r="78"/><circle cx="177.6" cy="336" r="78" fill="#1f5ad9"/><circle cx="259.2" cy="336" r="78"/>
+        <circle cx="340.8" cy="336" r="78" fill="#1f5ad9"/><circle cx="422.4" cy="336" r="78"/><circle cx="504" cy="336" r="78" fill="#1f5ad9"/>
+      </g>
+      <g fill="#e3262e" stroke="#e3262e" stroke-linejoin="round" font-family="Sancreek" text-anchor="middle">
+        <g font-size="97" stroke-width="2.5">
+          <text transform="translate(92 229) scale(.9 1)">E</text><text transform="translate(151.4 229) scale(.9 1)">L</text>
+          <text transform="translate(210.8 229) scale(.9 1)">E</text><text transform="translate(270.2 229) scale(.9 1)">C</text>
+          <text transform="translate(329.6 229) scale(.9 1)">T</text><text transform="translate(389 229) scale(.9 1)">R</text>
+          <text transform="translate(448.4 229) scale(.9 1)">I</text><text transform="translate(507.8 229) scale(.9 1)">C</text>
+        </g>
+        <g font-size="137" stroke-width="3">
+          <text transform="translate(96 391) scale(.8 1)">W</text><text transform="translate(177.6 391) scale(.8 1)">I</text>
+          <path transform="translate(259.2 391)" d="M-28-110H28V-94L15-63L21-55L9-48L-4-17H22V-31H29V0H-28V-16L-15-47L-21-55L-9-62L4-93H-20V-79H-28Z"/>
+          <text transform="translate(340.8 391) scale(.8 1)">A</text><text transform="translate(422.4 391) scale(.8 1)">R</text>
+          <text transform="translate(504 391) scale(.8 1)">D</text>
+        </g>
+        <text x="300" y="488" font-size="82" stroke-width="2.5" textLength="500" lengthAdjust="spacingAndGlyphs">TATTOO</text>
+      </g>
+      <text x="299" y="533" fill="#e3262e" font-family="Archivo" font-weight="800" font-size="45" text-anchor="middle" textLength="372" lengthAdjust="spacingAndGlyphs">LOOK NO FURTHER</text>
+      <g fill="#1f5ad9" transform="rotate(-5 290 70)">
+        <text x="290" y="88" font-family="Yellowtail" font-size="60" text-anchor="middle">"The original"</text>
+        <path d="M206 108C262 101 330 97 394 80" stroke="#1f5ad9" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </g>
+    </symbol>
   </defs>
 </svg>
 
 <!-- LOADER: rayo + flash + sello -->
 <div class="loader" aria-hidden="true">
   <svg class="loader__bolt" viewBox="0 0 60 120"><path d="M38 0 L6 66 L28 66 L18 120 L56 44 L33 44 L46 0 Z"/></svg>
-  <img class="loader__stamp" src="assets/ig/logo.jpg" alt="">
+  <svg class="loader__stamp" viewBox="0 0 600 600"><use href="#logo"/></svg>
   <div class="loader__flash"></div>
 </div>
 
@@ -181,6 +211,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=1"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

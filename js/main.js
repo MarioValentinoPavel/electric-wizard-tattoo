@@ -39,9 +39,16 @@
     $('.loader').remove();
     document.body.classList.remove('is-loading');
   } else {
-    gsap.timeline({ onComplete: () => { $('.loader').remove(); intro(); } })
+    // el sello es el logo en SVG con fuentes web: si aún no han cargado, el rayo espera (máx. 2 s)
+    let fontsOk = false;
+    const fontsReady = Promise.race([
+      Promise.all(['97px Sancreek', '60px Yellowtail', '800 45px Archivo'].map(f => document.fonts.load(f))),
+      new Promise(r => setTimeout(r, 2000))
+    ]).then(() => { fontsOk = true; }, () => { fontsOk = true; });
+    const tl = gsap.timeline({ onComplete: () => { $('.loader').remove(); intro(); } })
       .from('.loader__bolt', { scale: 0, rotation: -30, duration: 0.35, ease: 'back.out(3)' })
       .to('.loader__bolt', { opacity: 0.2, duration: 0.05, repeat: 5, yoyo: true })
+      .call(() => { if (!fontsOk) { tl.pause(); fontsReady.then(() => tl.resume()); } })
       .to('.loader__flash', { opacity: 1, duration: 0.06 })
       .set('.loader__bolt', { opacity: 0 })
       .to('.loader__flash', { opacity: 0, duration: 0.5 })
@@ -167,8 +174,9 @@
   scards.forEach((c, i) => {
     const next = scards[i + 1];
     if (!next) return;
-    gsap.to(c, {
-      scale: 0.9, rotation: i % 2 ? 2 : -2, filter: 'brightness(0.75)', ease: 'none',
+    // la carta se oscurece con una capa (--dim) en vez de filter: un filter sin valor inicial arrancaba en brightness(0) y la carta se veía negra
+    gsap.fromTo(c, { '--dim': 0 }, {
+      scale: 0.9, rotation: i % 2 ? 2 : -2, '--dim': 0.25, ease: 'none',
       scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 30%', scrub: true }
     });
   });
